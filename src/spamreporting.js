@@ -16,6 +16,7 @@ function onSpamReport(event) {
       const base64Eml = asyncResult.value; // Already base64
 
       // Send to backend
+      /*
       fetch("https://webhook.site/1c18c494-96fb-4bd2-a480-2f0f34bebd6c", {
         method: "POST",
         headers: {
@@ -33,6 +34,12 @@ function onSpamReport(event) {
         .catch((err) => {
           console.error("Fout bij verzenden naar backend:", err);
         });
+      */
+      
+      fetch("https://webhook.site/1c18c494-96fb-4bd2-a480-2f0f34bebd6c", {
+        method: "POST",
+        body: JSON.stringify({ test: "hello" }),
+      });
 
       // Show post-processing dialog
       event.completed({
