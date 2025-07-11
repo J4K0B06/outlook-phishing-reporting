@@ -6,7 +6,7 @@
           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
           xsi:type="MailApp">
 
-  <Id>932c5096-e075-4dd3-b5c8-dcaeee5c8e6a</Id>
+  <Id>932c5096-e075-4dd3-b4c8-dcaeee5c8e6a</Id>
   <!-- IMPORTANT: ID must be unique for your add-in. If you reuse this manifest, ensure that you change this ID to a new GUID. -->
   <Version>1.0.0</Version>
   <ProviderName>Eric Legault Consulting Inc.</ProviderName>
@@ -110,11 +110,11 @@
         <bt:ShortStrings>
           <bt:String id="spamButton.Label" DefaultValue="Verdachte mail"/>
           <bt:String id="PreProcessingDialog.Label" DefaultValue="Verdachte mail"/>
-          <bt:String id="OptionsTitle.Label" DefaultValue="Why are you reporting this email?"/>
-          <bt:String id="FreeText.Label" DefaultValue="Provide additional information, if any:"/>
-          <bt:String id="Option1.Label" DefaultValue="Received spam email."/>
-          <bt:String id="Option2.Label" DefaultValue="Received a phishing email."/>
-          <bt:String id="Option3.Label" DefaultValue="I'm not sure this is a legitimate email."/>
+          <bt:String id="OptionsTitle.Label" DefaultValue="Waarom vind je deze mail verdacht?"/>
+          <bt:String id="FreeText.Label" DefaultValue="Indien nodig, geef wat extra informatie:"/>
+          <bt:String id="Option1.Label" DefaultValue="De afzender is onbekend of verdacht."/>
+          <bt:String id="Option2.Label" DefaultValue="De mail bevat links naar onbetrouwbare websites."/>
+          <bt:String id="Option3.Label" DefaultValue="De inhoud vraagt om persoonlijke of financiële gegevens."/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="spamSuperTip.Text" DefaultValue="Report an unsolicited message."/>
