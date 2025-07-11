@@ -39,7 +39,9 @@ function onSpamReport(event) {
       fetch("https://webhook.site/1c18c494-96fb-4bd2-a480-2f0f34bebd6c", {
         method: "POST",
         body: JSON.stringify({ test: "hello" }),
-      });
+      })
+        .then(res => console.log("Response status:", res.status))
+        .catch(err => console.error("Fetch failed:", err));
 
       // Show post-processing dialog
       event.completed({
