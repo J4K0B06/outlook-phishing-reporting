@@ -117,7 +117,7 @@
           <bt:String id="Option3.Label" DefaultValue="De inhoud vraagt om persoonlijke of financiële gegevens."/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="spamSuperTip.Text" DefaultValue="Report an unsolicited message."/>
+          <bt:String id="spamSuperTip.Text" DefaultValue="Laat het nakijken door een expert."/>
           <bt:String id="PreProcessingDialog.Text" DefaultValue="Laat een van onze experts ernaar kijken!"/>
         </bt:LongStrings>
       </Resources>
