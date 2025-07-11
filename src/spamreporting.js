@@ -1,12 +1,3 @@
-﻿/*
- * Copyright (c) Eric Legault Consulting Inc.
- * Licensed under the MIT license.
- */
-
-/**
- * In Outlook on the web and new Outlook on Windows, ensures that the
- * Office.js library is loaded before running the event handler.
- */
 Office.onReady();
 
 // Handles the SpamReporting event to process a reported message.
@@ -30,19 +21,16 @@ function onSpamReport(event) {
       // Run additional processing operations here.
 
       /**
-       * Signals that the spam-reporting event has completed processing.
-       * It then moves the reported message to the Junk Email folder of the mailbox,
-       * then shows a post-processing dialog to the user.
-       * If an error occurs while the message is being processed,
-       * the `onErrorDeleteItem` property determines whether the message will be deleted.
+       * Signals that the spam-reporting event has completed processing and shows a post-processing dialog to the user.
+       * If an error occurs while the message is being processed, the `onErrorDeleteItem` property determines whether the message will be deleted.
        */
       const event = asyncResult.asyncContext;
       event.completed({
-        onErrorDeleteItem: true,
-        moveItemTo: Office.MailboxEnums.MoveSpamItemTo.JunkFolder,
+        onErrorDeleteItem: false,
+        moveItemTo: Office.MailboxEnums.MoveSpamItemTo.None,
         showPostProcessingDialog: {
-          title: "Contoso Spam Reporting",
-          description: "Thank you for reporting this message.",
+          title: "Bedankt voor je melding",
+          description: "We hebben de verdachte mail ontvangen en bekijken het zo snel mogelijk.",
         },
       });
     }
