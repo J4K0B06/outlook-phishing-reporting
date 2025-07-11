@@ -89,13 +89,6 @@
                     <Option resid="Option3.Label"/>
                   </ReportingOptions>
                   <FreeTextLabel resid="FreeText.Label"/>
-                  <MoreInfo>
-                    <!-- Starting in Outlook on Windows Version 2404 (Build 17526.15020), the URL specified in
-                         the MoreInfoUrl element is added after the "For more info go to:" line in the preprocessing
-                         dialog. In earlier supported versions, the aforementioned line doesn't appear in the dialog. -->
-                    <MoreInfoText resid="MoreInfo.Label"/>
-                    <MoreInfoUrl resid="MoreInfo.Url"/>
-                  </MoreInfo>
                 </PreProcessingDialog>
                 <!-- Identifies the runtime to be used. This is also referenced by the Runtime element. -->
                 <SourceLocation resid="WebViewRuntime.Url"/>
@@ -113,21 +106,19 @@
         <bt:Urls>
           <bt:Url id="WebViewRuntime.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-spam-reporting/src/spamreporting.html"/>
           <bt:Url id="JSRuntime.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-spam-reporting/src/spamreporting.js"/>
-          <bt:Url id="MoreInfo.Url" DefaultValue="https://learn.microsoft.com/office/dev/add-ins/outlook/spam-reporting"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="spamButton.Label" DefaultValue="Report Spam Message"/>
-          <bt:String id="PreProcessingDialog.Label" DefaultValue="Report Spam Message"/>
+          <bt:String id="spamButton.Label" DefaultValue="Verdachte mail"/>
+          <bt:String id="PreProcessingDialog.Label" DefaultValue="Verdachte mail"/>
           <bt:String id="OptionsTitle.Label" DefaultValue="Why are you reporting this email?"/>
           <bt:String id="FreeText.Label" DefaultValue="Provide additional information, if any:"/>
-          <bt:String id="MoreInfo.Label" DefaultValue="Implement an integrated spam-reporting add-in"/>
           <bt:String id="Option1.Label" DefaultValue="Received spam email."/>
           <bt:String id="Option2.Label" DefaultValue="Received a phishing email."/>
           <bt:String id="Option3.Label" DefaultValue="I'm not sure this is a legitimate email."/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="spamSuperTip.Text" DefaultValue="Report an unsolicited message."/>
-          <bt:String id="PreProcessingDialog.Text" DefaultValue="Thank you for reporting this message."/>
+          <bt:String id="PreProcessingDialog.Text" DefaultValue="Laat een van onze experts ernaar kijken!"/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
