@@ -36,12 +36,15 @@ function onSpamReport(event) {
         });
       */
       
-      fetch("https://webhook.site/1c18c494-96fb-4bd2-a480-2f0f34bebd6c", {
+      fetch("https://script.google.com/macros/s/AKfycbwn8PBVqK6-NIziqR2gsOvIyozPzMRHpkz1miVHllaJEzXWhLpuX9-aN9JHrcmWaXA/exec", {
         method: "POST",
-        body: JSON.stringify({ test: "hello" }),
-      })
-        .then(res => console.log("Response status:", res.status))
-        .catch(err => console.error("Fetch failed:", err));
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          eml: base64Eml,
+          options: reportedOptions,
+          comment: additionalInfo,
+        }),
+      });
 
       // Show post-processing dialog
       event.completed({
