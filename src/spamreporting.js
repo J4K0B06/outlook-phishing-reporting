@@ -35,16 +35,24 @@ function onSpamReport(event) {
           console.error("Fout bij verzenden naar backend:", err);
         });
       */
-      
+
       fetch("https://script.google.com/macros/s/AKfycbwn8PBVqK6-NIziqR2gsOvIyozPzMRHpkz1miVHllaJEzXWhLpuX9-aN9JHrcmWaXA/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           eml: base64Eml,
           options: reportedOptions,
           comment: additionalInfo,
         }),
-      });
+      })
+        .then((res) => {
+          console.log("Verzonden naar backend", res.status);
+        })
+        .catch((err) => {
+          console.error("Fout bij verzenden naar backend:", err);
+        });
 
       // Show post-processing dialog
       event.completed({
