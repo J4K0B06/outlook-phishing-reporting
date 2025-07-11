@@ -23,7 +23,7 @@ function onSpamReport(event) {
       // Signals that the spam-reporting event has completed processing and shows a post-processing dialog to the user.
       event.completed({
         onErrorDeleteItem: false,
-        moveItemTo: Office.MailboxEnums.MoveSpamItemTo.None,
+        moveItemTo: Office.MailboxEnums.MoveSpamItemTo.NoMove,
         showPostProcessingDialog: {
           title: "Bedankt voor je melding",
           description: "We hebben de verdachte mail ontvangen en bekijken het zo snel mogelijk.",
