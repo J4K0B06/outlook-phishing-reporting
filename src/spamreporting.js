@@ -2,7 +2,6 @@ Office.onReady();
 
 // Handles the SpamReporting event to process a reported message.
 function onSpamReport(event) {
-  // Get the Base64-encoded EML format of a reported message.
   Office.context.mailbox.item.getAsFileAsync(
     { asyncContext: event },
     (asyncResult) => {
@@ -13,14 +12,40 @@ function onSpamReport(event) {
         return;
       }
 
-      // Get the user's responses to the options and text box in the preprocessing dialog.
+      // Get the user's responses
       const spamReportingEvent = asyncResult.asyncContext;
       const reportedOptions = spamReportingEvent.options;
       const additionalInfo = spamReportingEvent.freeText;
 
-      // Run additional processing operations here.
+      // Send to backend
+      const emlFile = asyncResult.value; // EML-file
+      const reader = new FileReader();
 
-      // Signals that the spam-reporting event has completed processing and shows a post-processing dialog to the user.
+      reader.onload = function () {
+        const base64Eml = reader.result.split(',')[1]; // Strip data: URI prefix
+
+        fetch("https://webhook.site/1c18c494-96fb-4bd2-a480-2f0f34bebd6c", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            eml: base64Eml,
+            options: reportedOptions,
+            comment: additionalInfo,
+          }),
+        })
+          .then((res) => {
+            console.log("Verzonden naar backend", res.status);
+          })
+          .catch((err) => {
+            console.error("Fout bij verzenden naar backend:", err);
+          });
+      };
+
+      reader.readAsDataURL(emlFile);
+
+      // Show post-processing dialog
       event.completed({
         onErrorDeleteItem: false,
         moveItemTo: Office.MailboxEnums.MoveSpamItemTo.NoMove,
@@ -33,8 +58,4 @@ function onSpamReport(event) {
   );
 }
 
-/**
- * IMPORTANT: To ensure your add-in is supported in Outlook, remember to map the event handler name
- * specified in the manifest to its JavaScript counterpart.
- */
 Office.actions.associate("onSpamReport", onSpamReport);
